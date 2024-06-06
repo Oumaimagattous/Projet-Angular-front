@@ -1,0 +1,39 @@
+<div class="main-body">
+    <div class="panel-header">
+      <h2>Liste des Chambres</h2>
+      <div class="add-button-container">
+      <button mat-raised-button color="primary" (click)="navigateToAddChambre()">Ajouter Chambre</button>
+    </div>
+    </div>
+    <mat-form-field>
+      <mat-label>Rechercher</mat-label>
+     <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Nom">
+     </mat-form-field>
+  
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nom</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let chambre of chambres">
+            <td>{{ chambre.id }}</td>
+            <td>{{ chambre.name }}</td>
+            <td>
+              <button mat-icon-button color="primary" (click)="editChambre(chambre.id)">
+                <mat-icon>edit</mat-icon>
+              </button>
+              <button mat-icon-button color="warn" (click)="deleteChambre(chambre.id)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

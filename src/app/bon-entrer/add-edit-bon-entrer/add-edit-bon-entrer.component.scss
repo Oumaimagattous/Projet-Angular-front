@@ -1,0 +1,30 @@
+.form-container {
+    max-width: 400px;
+    margin: auto;
+  }
+  
+  .form-field {
+    margin-bottom: 20px;
+  }
+  
+  .mat-form-field {
+    width: 100%;
+  }
+  
+  .mat-form-field + .mat-form-field {
+    margin-top: 15px;
+  }
+  
+  .mat-select {
+    width: 100%;
+  }
+  
+  .mat-dialog-actions {
+    justify-content: flex-end;
+    margin-top: 20px;
+  }
+  
+  button[type="submit"] {
+    margin-left: 10px;
+  }
+  

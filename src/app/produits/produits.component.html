@@ -1,0 +1,39 @@
+<div class="main-body">
+    <div class="panel-header">
+      <h2>Liste des Produits</h2>
+      <button mat-raised-button color="primary" (click)="navigateToAddProduit()">Ajouter Produit</button>
+    </div>
+    <mat-form-field>
+      <mat-label>Rechercher</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Nom">
+    </mat-form-field>
+  
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nom</th>
+            <th>ID Societe</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let produit of filteredProduits">
+            <td>{{ produit.id }}</td>
+            <td>{{ produit.name }}</td>
+            <td>{{ produit.idSociete }}</td>
+            <td>
+              <button mat-icon-button color="primary" (click)="editProduit(produit.id)">
+                <mat-icon>edit</mat-icon>
+              </button>
+              <button mat-icon-button color="warn" (click)="deleteProduit(produit.id)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

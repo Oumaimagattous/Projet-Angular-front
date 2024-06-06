@@ -1,0 +1,49 @@
+<div class="main-body">
+    <div class="panel-header">
+      <h2>Liste BonEntrée</h2>
+      
+      <button mat-raised-button color="primary" (click)="addBonEntree()">Ajouter BonEntrée</button>
+           
+      
+    </div>
+    <mat-form-field>
+      <mat-label>Rechercher</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Date, Fournisseur, Produit">
+    </mat-form-field>
+  
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Date</th>
+            <th>Quantité</th>
+            <th>Fournisseur</th>
+            <th>Produit</th>
+            <!-- Ajoutez d'autres en-têtes si nécessaire -->
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let bonEntree of bonsEntree">
+            <td>{{ bonEntree.id }}</td>
+            <td>{{ bonEntree.date | date }}</td>
+            <td>{{ bonEntree.qte }}</td>
+            <td>{{ bonEntree.fournisseur?.name }}</td>
+            <td>{{ bonEntree.produit?.name }}</td>
+            <!-- Remplacez .name par le nom de la propriété appropriée dans vos modèles -->
+            <!-- Ajoutez d'autres colonnes si nécessaire -->
+            <td>
+              <button mat-icon-button color="primary" (click)="editBonEntree(bonEntree.id)">
+                <mat-icon>edit</mat-icon>
+              </button>
+              <button mat-icon-button color="warn" (click)="deleteBonEntree(bonEntree.id)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
